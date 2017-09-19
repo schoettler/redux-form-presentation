@@ -1,0 +1,14 @@
+export function* createBulletin({ params: bulletin }: Object): Generator<*, *, *> {
+  // dictionary to match API data keys
+  const body: TBulletinBody = yield call(buildBulletinBody, bulletin, area);
+  try {
+    const response = yield call(
+      postBulletin,
+      { body },
+    );
+    yield put(createBulletinAction.success(response));
+  }
+  catch (error) {
+    yield put(createBulletinAction.failure(error));
+  }
+}

@@ -1,0 +1,16 @@
+// component.js
+export const AnnouncementsForm = reduxForm({
+  form: 'addAnnouncement',
+})(Announcements);
+
+//container.js
+const mapStateToProps = (state: TAppState) => ({
+  initialValues: selectBulletinData(state),
+});
+
+const mapDispatchToProps = {};
+
+export const AnnouncementsFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(AnnouncementsForm);

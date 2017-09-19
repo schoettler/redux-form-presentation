@@ -1,0 +1,23 @@
+import { connect } from 'react-redux';
+import type { TAppState } from '../../store/types';
+import { Bulletins } from './component';
+import { isBulletinSaving } from '../ui/selectors';
+import { selectBulletinData, selectPracticeArea } from './selectors';
+import { updateBulletinForm, createBulletinAction, updatePracticeArea } from './actions';
+
+const mapStateToProps = (state: TAppState) => ({
+  isBulletinSaving: isBulletinSaving(state),
+  bulletinData: selectBulletinData(state),
+  practiceArea: selectPracticeArea(state),
+});
+
+const mapDispatchToProps = {
+  updateBulletinForm,
+  updatePracticeArea,
+  createBulletinAction: createBulletinAction.request,
+};
+
+export const BulletinsContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Bulletins);

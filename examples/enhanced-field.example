@@ -1,0 +1,27 @@
+export const BulletinText = ({
+  id,
+  meta: { error, touched },
+  input: { onBlur, onChange, value },
+  placeholder,
+  title,
+}: any) => {
+  return (
+    <Input
+      id={id}
+      onBlur={onBlur}
+      onChange={onChange}
+      error={error}
+      touched={touched}
+      value={value}
+      placeholder={placeholder}
+      title={title}
+    />
+  );
+};
+
+<Field
+  id="input-button-alternate"
+  name="alternateButtonCaption"
+  component={BulletinText}
+  type="text"
+/>

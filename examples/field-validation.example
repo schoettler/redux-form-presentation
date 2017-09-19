@@ -1,0 +1,7 @@
+<Field
+  validate={[isUgly]}
+  id="input-announcement-title"
+  name="title"
+  component={BulletinText}
+  type="text"
+/>

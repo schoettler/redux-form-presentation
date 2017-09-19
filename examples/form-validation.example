@@ -1,0 +1,16 @@
+// component.js
+export const validate = (values) => {
+  const errors = {};
+  const isTitleUgly = isUgly(values.title);
+  
+  if(isTitleUgly) {
+    errors.title = isTitleUgly;
+  }
+
+  return errors;
+}
+
+export const AnnouncementsForm = reduxForm({
+  form: 'addAnnouncement',
+  validate,
+})(Announcements);

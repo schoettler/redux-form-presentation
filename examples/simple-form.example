@@ -1,0 +1,27 @@
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+
+export const Announcements = ({
+  createBulletinAction,
+  handleSubmit,
+}) => {
+  return (
+    <form onSubmit={handleSubmit(createBulletinAction)}>
+      <Field
+        name="title"
+        component={input}
+        type="text"
+      />
+      <Field
+        name="description"
+        component={input}
+        type="text"
+      />
+      <Button type="submit">Save</Button>
+    </form>
+  );
+};
+
+export const AnnouncementsForm = reduxForm({
+  form: 'addAnnouncement',
+})(Announcements);
